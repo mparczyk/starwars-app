@@ -1,18 +1,19 @@
 import { usePersonQuery } from "../../queries/queries";
 import { List, Card } from "antd";
 import { IPerson } from "../../types";
-import { request } from "../../utils/http";
 
-export const HomePage = (): JSX.Element => {
+export const CharacterPage = (): JSX.Element => {
   const { data: characters } = usePersonQuery();
 
   return (
     <List
       grid={{ gutter: 16, column: 4 }}
-      dataSource={characters}
+      dataSource={characters?.results}
       renderItem={(person: IPerson) => (
         <List.Item>
-          <Card title={person.name}>Card content</Card>
+          <Card title={person.name}>
+            <p>{person.gender}</p>
+          </Card>
         </List.Item>
       )}
     />

@@ -30,3 +30,8 @@ export interface IPlanent {
   created: string;
   edited: string;
 }
+
+export interface IPagination<T> {
+  count: number;
+  results: T[];
+}

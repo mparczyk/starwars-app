@@ -1,9 +1,6 @@
 type MethodType = "post" | "get" | "put" | "delete";
 
-interface SuccessResponse<T> {
-  data: T;
-  status: string;
-}
+type SuccessResponse<T> = T;
 
 const createBody = (data?: object) => {
   if (!data) {
@@ -26,8 +23,7 @@ export const request = async <T,>(
 
   if (response.ok) {
     const data = (await response.json()) as SuccessResponse<T>;
-    console.log(data);
-    return data.data;
+    return data;
   }
 
   throw new Error();
