@@ -25,7 +25,7 @@ export const menu: MenuItems = [
     label: "Starships",
   },
   {
-    key: "wehicles",
-    label: "Wehicles",
+    key: "vehicles",
+    label: "Vehicles",
   },
 ];

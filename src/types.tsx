@@ -14,6 +14,21 @@ export interface IPerson {
   vehicles: string[];
 }
 
+export interface IMovie {
+  title: string;
+  episode_id: string;
+  opening_crawl: string;
+  director: number;
+  producer: string;
+  release_date: Date;
+  species: string[];
+  starships: string[];
+  vehicles: string[];
+  characters: string[];
+  planets: string[];
+  url: string;
+}
+
 export interface IPlanent {
   name: string;
   diameter: string;
