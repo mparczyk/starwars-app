@@ -2,11 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { request } from "../utils/http";
 import { IMovie, IPagination, IPerson } from "../types";
 
-export const useCharactersQuery = () =>
+export const useCharactersQuery = (page: number) =>
   useQuery({
-    queryKey: ["characters"],
+    queryKey: ["characters", page],
     queryFn: () =>
-      request<IPagination<IPerson>>("get", "https://swapi.dev/api/people"),
+      request<IPagination<IPerson>>(
+        "get",
+        `https://swapi.dev/api/people/?page=${page}`
+      ),
   });
 
 export const usePersonQuery = (id: string) =>
@@ -25,6 +28,6 @@ export const useMoviesQuery = () =>
 
 export const useFilmQuery = (id: string) =>
   useQuery({
-    queryKey: ["charcters", id],
+    queryKey: ["movies", id],
     queryFn: () => request<IMovie>("get", `https://swapi.dev/api/films/${id}`),
   });

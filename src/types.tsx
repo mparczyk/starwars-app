@@ -48,5 +48,6 @@ export interface IPlanent {
 
 export interface IPagination<T> {
   count: number;
+  next: string;
   results: T[];
 }
