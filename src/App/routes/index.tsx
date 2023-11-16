@@ -3,6 +3,8 @@ import { MoviesPage } from "../../Pages/Movies";
 import { FilmPage } from "../../Pages/Movies/FilmPage";
 import { PersonPage } from "../../Pages/Characters/PersonPage";
 import { StartSite } from "../../Pages/StartSite";
+import { PlanetsPage } from "../../Pages/Planets";
+import { StarshipsPage } from "../../Pages/Starships";
 
 export const routes = [
   {
@@ -24,6 +26,22 @@ export const routes = [
       {
         path: "/characters/:id",
         element: <PersonPage />,
+      },
+      {
+        path: "/planets",
+        element: <PlanetsPage />,
+      },
+      {
+        path: "/planets/:id",
+        element: <>Hello</>,
+      },
+      {
+        path: "/starships",
+        element: <StarshipsPage />,
+      },
+      {
+        path: "/starships/:id",
+        element: <>Starship</>,
       },
     ],
   },

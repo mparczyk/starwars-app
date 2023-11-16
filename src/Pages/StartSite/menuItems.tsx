@@ -18,11 +18,11 @@ export const menu: MenuItems = [
   },
   {
     key: "planets",
-    label: "Planets",
+    label: <Link to={"/planets"}>Planets</Link>,
   },
   {
     key: "starships",
-    label: "Starships",
+    label: <Link to={"/starships"}>Starships</Link>,
   },
   {
     key: "vehicles",

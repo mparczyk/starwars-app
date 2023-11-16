@@ -1,6 +1,6 @@
 import { useMoviesQuery } from "../../queries/queries";
 import { List, Card } from "antd";
-import { IMovie, IPerson } from "../../types";
+import { IMovie, IPerson } from "../../types/types";
 import { Link } from "react-router-dom";
 
 export const MoviesPage = (): JSX.Element => {

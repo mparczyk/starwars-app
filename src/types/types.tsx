@@ -29,7 +29,7 @@ export interface IMovie {
   url: string;
 }
 
-export interface IPlanent {
+export interface IPlanet {
   name: string;
   diameter: string;
   rotation_period: string;
@@ -44,6 +44,34 @@ export interface IPlanent {
   url: string;
   created: string;
   edited: string;
+}
+
+export interface IStarships {
+  name: string;
+  model: string;
+  starship_class: string;
+  manufacturer: string;
+  length: string;
+  crew: string;
+  passengers: string;
+  max_athosphering_speed: string;
+  hyperdrive_rating: string;
+  pilots: string[];
+  url: string;
+}
+
+export interface IVehicles {
+  name: string;
+  model: string;
+  vehicle_class: string;
+  manufacturer: string;
+  length: string;
+  crew: string;
+  passengers: string;
+  max_athosphering_speed: string;
+  cargo_capacity: string;
+  pilots: string[];
+  url: string;
 }
 
 export interface IPagination<T> {

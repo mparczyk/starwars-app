@@ -1,6 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { request } from "../utils/http";
-import { IMovie, IPagination, IPerson } from "../types";
+import {
+  IMovie,
+  IPagination,
+  IPerson,
+  IPlanet,
+  IStarships,
+  IVehicles,
+} from "../types/types";
 
 export const useCharactersQuery = (page: number) =>
   useQuery({
@@ -30,4 +37,28 @@ export const useFilmQuery = (id: string) =>
   useQuery({
     queryKey: ["movies", id],
     queryFn: () => request<IMovie>("get", `https://swapi.dev/api/films/${id}`),
+  });
+
+export const usePlanetsQuery = () =>
+  useQuery({
+    queryKey: ["planets"],
+    queryFn: () =>
+      request<IPagination<IPlanet>>("get", "https://swapi.dev/api/planets"),
+  });
+
+export const useStarshipsQuery = () =>
+  useQuery({
+    queryKey: ["starships"],
+    queryFn: () =>
+      request<IPagination<IStarships>>(
+        "get",
+        "https://swapi.dev/api/starships"
+      ),
+  });
+
+export const useVehiclesQuery = () =>
+  useQuery({
+    queryKey: ["vehicles"],
+    queryFn: () =>
+      request<IPagination<IVehicles>>("get", "https://swapi.dev/api/vehicles"),
   });
