@@ -1,12 +1,27 @@
-import { useCharactersQuery } from "../../queries/queries";
-import { List, Card, Pagination } from "antd";
-import { IPerson } from "../../types/types";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { List, Card, Pagination, Skeleton } from "antd";
+
+import { IPlanet, type IPerson } from "../../types/types";
+
+import {
+  useCharactersQuery,
+  useSinglePlanetQuery,
+} from "../../queries/queries";
+import { request } from "../../utils/http";
 
 export const CharacterPage = (): JSX.Element => {
+  const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(1);
-  const { data: characters } = useCharactersQuery(pageNum);
+  const {
+    isFetching,
+    isLoading,
+    data: characters,
+  } = useCharactersQuery(pageNum);
+
+  if (isLoading) {
+    <Skeleton active />;
+  }
   return (
     <>
       <List
@@ -17,15 +32,16 @@ export const CharacterPage = (): JSX.Element => {
           const id = charactersId[5];
           return (
             <List.Item>
+              {/* <Skeleton loading={isLoading} active> */}
               <Card
                 title={<Link to={`/characters/${id}`}>{character.name}</Link>}
               >
                 <p>Gender: {character.gender}</p>
                 <p>Hair Color: {character.hair_color}</p>
                 <p>Height: {character.height}</p>
-                <p>Species: {character.species}</p>
                 <p>Homeworld: {character.homeworld}</p>
               </Card>
+              {/* </Skeleton> */}
             </List.Item>
           );
         }}

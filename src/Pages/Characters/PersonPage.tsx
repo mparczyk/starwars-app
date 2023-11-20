@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
-import { usePersonQuery } from "../../queries/queries";
 import { Card } from "antd";
+
+import { usePersonQuery } from "../../queries/queries";
 
 export const PersonPage = (): JSX.Element => {
   const { id } = useParams();

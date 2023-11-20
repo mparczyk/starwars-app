@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { request } from "../utils/http";
-import {
+
+import type {
   IMovie,
   IPagination,
   IPerson,
@@ -8,6 +8,8 @@ import {
   IStarships,
   IVehicles,
 } from "../types/types";
+
+import { request } from "../utils/http";
 
 export const useCharactersQuery = (page: number) =>
   useQuery({
@@ -21,7 +23,7 @@ export const useCharactersQuery = (page: number) =>
 
 export const usePersonQuery = (id: string) =>
   useQuery({
-    queryKey: ["charcters", id],
+    queryKey: ["characters", id],
     queryFn: () =>
       request<IPerson>("get", `https://swapi.dev/api/people/${id}`),
   });
@@ -39,26 +41,39 @@ export const useFilmQuery = (id: string) =>
     queryFn: () => request<IMovie>("get", `https://swapi.dev/api/films/${id}`),
   });
 
-export const usePlanetsQuery = () =>
+export const usePlanetsQuery = (page: number) =>
   useQuery({
-    queryKey: ["planets"],
+    queryKey: ["planets", page],
     queryFn: () =>
-      request<IPagination<IPlanet>>("get", "https://swapi.dev/api/planets"),
-  });
-
-export const useStarshipsQuery = () =>
-  useQuery({
-    queryKey: ["starships"],
-    queryFn: () =>
-      request<IPagination<IStarships>>(
+      request<IPagination<IPlanet>>(
         "get",
-        "https://swapi.dev/api/starships"
+        `https://swapi.dev/api/planets/?page=${page}`
       ),
   });
 
-export const useVehiclesQuery = () =>
+export const useSinglePlanetQuery = (id: string) =>
   useQuery({
-    queryKey: ["vehicles"],
+    queryKey: ["planets", id],
     queryFn: () =>
-      request<IPagination<IVehicles>>("get", "https://swapi.dev/api/vehicles"),
+      request<IPlanet>("get", `https://swapi.dev/api/planets/${id}`),
+  });
+
+export const useStarshipsQuery = (page: number) =>
+  useQuery({
+    queryKey: ["starships", page],
+    queryFn: () =>
+      request<IPagination<IStarships>>(
+        "get",
+        `https://swapi.dev/api/starships/?page=${page}`
+      ),
+  });
+
+export const useVehiclesQuery = (page: number) =>
+  useQuery({
+    queryKey: ["vehicles", page],
+    queryFn: () =>
+      request<IPagination<IVehicles>>(
+        "get",
+        `https://swapi.dev/api/vehicles/?page=${page}`
+      ),
   });

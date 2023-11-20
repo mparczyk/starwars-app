@@ -1,5 +1,6 @@
 import { Layout, Menu } from "antd";
 import { Outlet } from "react-router-dom";
+
 import { menu } from "./menuItems";
 
 const { Header, Content, Footer } = Layout;

@@ -26,6 +26,6 @@ export const menu: MenuItems = [
   },
   {
     key: "vehicles",
-    label: "Vehicles",
+    label: <Link to={"/vehicles"}>Vehicles</Link>,
   },
 ];

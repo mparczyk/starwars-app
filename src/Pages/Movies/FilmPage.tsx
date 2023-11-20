@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useFilmQuery } from "../../queries/queries";
 import { Card } from "antd";
+
+import { useFilmQuery } from "../../queries/queries";
 
 export const FilmPage = (): JSX.Element => {
   const { id } = useParams();

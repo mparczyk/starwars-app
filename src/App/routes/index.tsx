@@ -5,6 +5,7 @@ import { PersonPage } from "../../Pages/Characters/PersonPage";
 import { StartSite } from "../../Pages/StartSite";
 import { PlanetsPage } from "../../Pages/Planets";
 import { StarshipsPage } from "../../Pages/Starships";
+import { VehiclesPage } from "../../Pages/Vehicles";
 
 export const routes = [
   {
@@ -42,6 +43,14 @@ export const routes = [
       {
         path: "/starships/:id",
         element: <>Starship</>,
+      },
+      {
+        path: "/vehicles",
+        element: <VehiclesPage />,
+      },
+      {
+        path: "/vehicles/:id",
+        element: <>Vehicle</>,
       },
     ],
   },
