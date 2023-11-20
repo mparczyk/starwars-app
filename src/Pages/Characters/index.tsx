@@ -2,13 +2,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { List, Card, Pagination, Skeleton } from "antd";
 
-import { IPlanet, type IPerson } from "../../types/types";
+import type { IPerson } from "../../types/types";
 
-import {
-  useCharactersQuery,
-  useSinglePlanetQuery,
-} from "../../queries/queries";
-import { request } from "../../utils/http";
+import { useCharactersQuery } from "../../queries/queries";
 
 export const CharacterPage = (): JSX.Element => {
   const [loading, setLoading] = useState(true);

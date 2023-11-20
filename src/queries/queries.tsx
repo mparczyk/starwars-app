@@ -68,6 +68,13 @@ export const useStarshipsQuery = (page: number) =>
       ),
   });
 
+export const useSingleStarshipQuery = (id: string) =>
+  useQuery({
+    queryKey: ["starships", id],
+    queryFn: () =>
+      request<IStarships>("get", `https://swapi.dev/api/starships/${id}`),
+  });
+
 export const useVehiclesQuery = (page: number) =>
   useQuery({
     queryKey: ["vehicles", page],
@@ -76,4 +83,11 @@ export const useVehiclesQuery = (page: number) =>
         "get",
         `https://swapi.dev/api/vehicles/?page=${page}`
       ),
+  });
+
+export const useSingleVehicleQuery = (id: string) =>
+  useQuery({
+    queryKey: ["vehicles", id],
+    queryFn: () =>
+      request<IVehicles>("get", `https://swapi.dev/api/vehicles/${id}`),
   });

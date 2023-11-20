@@ -6,6 +6,7 @@ import { StartSite } from "../../Pages/StartSite";
 import { PlanetsPage } from "../../Pages/Planets";
 import { StarshipsPage } from "../../Pages/Starships";
 import { VehiclesPage } from "../../Pages/Vehicles";
+import { PlanetPage } from "../../Pages/Planets/PlanetPage";
 
 export const routes = [
   {
@@ -34,7 +35,7 @@ export const routes = [
       },
       {
         path: "/planets/:id",
-        element: <>Hello</>,
+        element: <PlanetPage />,
       },
       {
         path: "/starships",
