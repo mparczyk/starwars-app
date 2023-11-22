@@ -8,9 +8,9 @@ export const FilmPage = (): JSX.Element => {
   const { data: film } = useFilmQuery(id!);
   return (
     <Card title={<h3>{film?.title}</h3>}>
-      <p>{film?.episode_id}</p>
-      <p>{film?.opening_crawl}</p>
-      <p>{film?.director}</p>
+      <p>Episode: {film?.episode_id}</p>
+      <p>Opening Crawl: {film?.opening_crawl}</p>
+      <p>Director: {film?.director}</p>
     </Card>
   );
 };

@@ -5,9 +5,10 @@ import { List, Card, Pagination, Skeleton } from "antd";
 import type { IPerson } from "../../types/types";
 
 import { useCharactersQuery } from "../../queries/queries";
+import Meta from "antd/es/card/Meta";
+import { StyledImg } from "./styles";
 
 export const CharacterPage = (): JSX.Element => {
-  const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(1);
   const {
     isFetching,
@@ -15,29 +16,28 @@ export const CharacterPage = (): JSX.Element => {
     data: characters,
   } = useCharactersQuery(pageNum);
 
-  if (isLoading) {
-    <Skeleton active />;
-  }
   return (
-    <>
+    <Skeleton loading={isLoading} active>
       <List
-        grid={{ gutter: 16, column: 4 }}
+        grid={{ gutter: 16, column: 5 }}
         dataSource={characters?.results}
         renderItem={(character: IPerson) => {
           const charactersId = character.url.split("/");
           const id = charactersId[5];
           return (
             <List.Item>
-              {/* <Skeleton loading={isLoading} active> */}
               <Card
-                title={<Link to={`/characters/${id}`}>{character.name}</Link>}
+                cover={
+                  <StyledImg
+                    alt="example"
+                    src="https://icon-library.com/images/darth-vader-icon/darth-vader-icon-2.jpg"
+                  />
+                }
               >
-                <p>Gender: {character.gender}</p>
-                <p>Hair Color: {character.hair_color}</p>
-                <p>Height: {character.height}</p>
-                <p>Homeworld: {character.homeworld}</p>
+                <Meta
+                  title={<Link to={`/starships/${id}`}>{character.name}</Link>}
+                />
               </Card>
-              {/* </Skeleton> */}
             </List.Item>
           );
         }}
@@ -50,6 +50,6 @@ export const CharacterPage = (): JSX.Element => {
           setPageNum(page);
         }}
       />
-    </>
+    </Skeleton>
   );
 };

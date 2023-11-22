@@ -5,6 +5,8 @@ import { List, Card, Pagination } from "antd";
 import type { IStarships } from "../../types/types";
 
 import { useStarshipsQuery } from "../../queries/queries";
+import Meta from "antd/es/card/Meta";
+import { CustomPagination } from "../../UI/Pagination";
 
 export const StarshipsPage = (): JSX.Element => {
   const [pageNum, setPageNum] = useState(1);
@@ -21,25 +23,22 @@ export const StarshipsPage = (): JSX.Element => {
           return (
             <List.Item>
               <Card
-                title={<Link to={`/starships/${id}`}>{starship.name}</Link>}
+                cover={
+                  <img
+                    alt="example"
+                    src="https://icon-library.com/images/darth-vader-icon/darth-vader-icon-2.jpg"
+                  />
+                }
               >
-                <p>{starship.model}</p>
-                <p>{starship.length}</p>
-                <p>{starship.pilots}</p>
-                <p>{starship.passengers}</p>
+                <Meta
+                  title={<Link to={`/starships/${id}`}>{starship.name}</Link>}
+                />
               </Card>
             </List.Item>
           );
         }}
       />
-      <Pagination
-        style={{ backgroundColor: "white", width: "500px" }}
-        pageSize={10}
-        total={starships?.count}
-        onChange={(page) => {
-          setPageNum(page);
-        }}
-      />
+      {starships && <CustomPagination totalNum={starships?.count} />}
     </>
   );
 };
