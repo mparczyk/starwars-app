@@ -1,22 +1,16 @@
-import { Pagination } from "antd";
-import { useState } from "react";
-import { IPagination } from "../types/types";
+import { StyledPagination } from './styles';
 
 export const CustomPagination = ({
   totalNum,
+  pageNum,
+  setPageNum,
 }: {
   totalNum: number;
+  setPageNum: (page: number) => void;
+  pageNum: number;
 }): JSX.Element => {
-  const [pageNum, setPageNum] = useState(1);
-
-  return (
-    <Pagination
-      style={{ backgroundColor: "white", width: "500px" }}
-      pageSize={10}
-      total={totalNum}
-      onChange={(page) => {
-        setPageNum(page);
-      }}
-    />
-  );
+  const handleOnChange = (page: number) => {
+    setPageNum(page);
+  };
+  return <StyledPagination defaultCurrent={pageNum} pageSize={10} total={totalNum} onChange={handleOnChange} />;
 };

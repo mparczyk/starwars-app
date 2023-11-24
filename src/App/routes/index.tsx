@@ -1,57 +1,73 @@
-import { CharacterPage } from "../../Pages/Characters";
-import { MoviesPage } from "../../Pages/Movies";
-import { FilmPage } from "../../Pages/Movies/FilmPage";
-import { PersonPage } from "../../Pages/Characters/PersonPage";
-import { StartSite } from "../../Pages/StartSite";
-import { PlanetsPage } from "../../Pages/Planets";
-import { StarshipsPage } from "../../Pages/Starships";
-import { VehiclesPage } from "../../Pages/Vehicles";
-import { PlanetPage } from "../../Pages/Planets/PlanetPage";
+import { CharacterPage } from '../../Pages/Characters';
+import { MoviesPage } from '../../Pages/Movies';
+import { FilmPage } from '../../Pages/Movies/FilmPage';
+import { PersonPage } from '../../Pages/Characters/PersonPage';
+import { StartSite } from '../../Pages/StartSite';
+import { PlanetsPage } from '../../Pages/Planets';
+import { StarshipsPage } from '../../Pages/Starships';
+import { VehiclesPage } from '../../Pages/Vehicles';
+import { PlanetPage } from '../../Pages/Planets/PlanetPage';
+import { HomePage } from '../../Pages/Home';
+import { LanguageSwitcher } from '../../UI/LanguageSwitcher';
 
 export const routes = [
   {
-    path: "/",
+    path: '/',
     element: <StartSite />,
     children: [
       {
-        path: "/films",
-        element: <MoviesPage />,
+        index: true,
+        element: <HomePage />,
+        id: 'home',
       },
       {
-        path: "/films/:id",
+        path: '/films',
+        element: <MoviesPage />,
+        id: 'films',
+      },
+      {
+        path: '/films/:id',
         element: <FilmPage />,
       },
       {
-        path: "/characters",
+        path: '/characters',
         element: <CharacterPage />,
+        id: 'characters',
       },
       {
-        path: "/characters/:id",
+        path: '/characters/:id',
         element: <PersonPage />,
       },
       {
-        path: "/planets",
+        path: '/planets',
         element: <PlanetsPage />,
+        id: 'planets',
       },
       {
-        path: "/planets/:id",
+        path: '/planets/:id',
         element: <PlanetPage />,
       },
       {
-        path: "/starships",
+        path: '/starships',
         element: <StarshipsPage />,
+        id: 'starships',
       },
       {
-        path: "/starships/:id",
+        path: '/starships/:id',
         element: <>Starship</>,
       },
       {
-        path: "/vehicles",
+        path: '/vehicles',
         element: <VehiclesPage />,
+        id: 'vehicles',
       },
       {
-        path: "/vehicles/:id",
+        path: '/vehicles/:id',
         element: <>Vehicle</>,
+      },
+      {
+        path: '/typo',
+        element: <LanguageSwitcher />,
       },
     ],
   },

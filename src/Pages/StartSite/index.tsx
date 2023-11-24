@@ -1,59 +1,31 @@
-import { Layout, Menu } from "antd";
-import { Outlet } from "react-router-dom";
+import { Outlet, useMatches } from 'react-router-dom';
 
-import { menu } from "./menuItems";
-
-const { Header, Content, Footer } = Layout;
+import { menu } from './menuItems';
+import { StyledContent, StyledHeader, StyledLayout, StyledMenu, StyledFooter } from './styles';
+import { ConfigProvider, Menu } from 'antd';
+import { Language } from '../../i18n/lang';
 
 export const StartSite = (): JSX.Element => {
+  const matches = useMatches();
+  Object.entries(Language).forEach(([key, value]) => console.log(key, value));
+
   return (
-    <Layout
-      className="layout"
-      style={{
-        height: "100vh",
-        backgroundImage:
-          "url(https://coursework.vschool.io/content/images/2016/08/iirl45r4u6vg4y6plviu.jpg)",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        opacity: "0.9",
-      }}
-    >
-      <Header
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "black",
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "transparent",
-            width: "100%",
-            color: "yellow",
-            fontSize: "1.3em",
-          }}
-          mode="horizontal"
-          defaultSelectedKeys={["start"]}
-          items={menu}
-        />
-      </Header>
-      <Content style={{ padding: "50px", height: "100%", width: "100%" }}>
+    <StyledLayout>
+      <StyledHeader>
+        <div className='demo-logo' />
+        <StyledMenu mode='horizontal' defaultSelectedKeys={[matches.at(-1)?.id ?? '']} items={menu} />
+        {/* <div>
+          {Object.keys(lngs).map((lng) => (
+            <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
+              {lngs[lng]}
+            </button>
+          ))}
+        </div> */}
+      </StyledHeader>
+      <StyledContent>
         <Outlet />
-      </Content>
-      <Footer
-        style={{
-          textAlign: "center",
-          backgroundColor: "black",
-          color: "yellow",
-        }}
-      >
-        Star Wars App ©2023 Created by Marek
-      </Footer>
-    </Layout>
+      </StyledContent>
+      <StyledFooter>Star Wars App ©2023 Created by Marek</StyledFooter>
+    </StyledLayout>
   );
 };
