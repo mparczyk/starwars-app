@@ -1,8 +1,9 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import { translationEn } from './translation_en';
-import { deafultLanguage } from './lang';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { translationEn } from "./translation_en";
+import { deafultLanguage } from "./lang";
+import { translationDe } from "./translation_de";
 
 i18n
   // detect user language
@@ -22,6 +23,9 @@ i18n
       en: {
         translation: translationEn,
         // here we will place our translations,
+      },
+      de: {
+        translation: translationDe,
       },
     },
   });

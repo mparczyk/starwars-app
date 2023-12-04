@@ -1,6 +1,6 @@
-import { Card } from 'antd';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Card } from "antd";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const StyledImg = styled.img`
   width: 100%;

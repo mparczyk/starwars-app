@@ -79,3 +79,19 @@ export interface IPagination<T> {
   next: string;
   results: T[];
 }
+
+export interface ILogin {
+  id: number;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  image: string;
+  token: string;
+}
+
+export type FieldType = {
+  username: string;
+  password: string;
+};

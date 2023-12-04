@@ -3,6 +3,7 @@ import { Typography } from "antd";
 import { useTranslation } from "react-i18next";
 
 import { localStorageLanguageKey } from "../../i18n/lang";
+import { StyledText } from "./styles";
 
 export const LanguageSwitcherEnglish = ({
   handleOnClick,
@@ -11,12 +12,11 @@ export const LanguageSwitcherEnglish = ({
 }): JSX.Element => {
   const { i18n } = useTranslation();
   return (
-    <Typography.Text
-      style={{ color: "white" }}
+    <StyledText
       strong={i18n.resolvedLanguage === "en"}
       onClick={() => handleOnClick("en")}
     >
       EN
-    </Typography.Text>
+    </StyledText>
   );
 };
