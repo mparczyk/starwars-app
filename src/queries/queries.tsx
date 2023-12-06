@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 import type {
-  FieldType,
   ILogin,
   IMovie,
   IPagination,
@@ -9,10 +8,13 @@ import type {
   IPlanet,
   IStarships,
   IVehicles,
+  LoginType,
+  RegisterType,
 } from "../types/types";
 
 import { request } from "../utils/http";
 import { NavigateFunction, redirect, useNavigate } from "react-router-dom";
+import { LocalStorageTokenKey } from "../utils/token";
 
 export const useCharactersQuery = (page: number) =>
   useQuery({
@@ -98,8 +100,20 @@ export const useSingleVehicleQuery = (id: string) =>
 export const useSignInMutation = (navigate: NavigateFunction) =>
   useMutation({
     mutationKey: ["login", "password"],
-    mutationFn: (data: FieldType) =>
-      request<ILogin>("post", "https://dummyjson.com/auth/login", data),
+    mutationFn: (data: LoginType) =>
+      request<ILogin>("post", "http://localhost:3001/login", data),
+    onSuccess: (data: ILogin) => {
+      localStorage.setItem(LocalStorageTokenKey, data.data.token);
+      console.log(data.data);
+      navigate("/characters");
+    },
+  });
+
+export const useSignUpMutation = (navigate: NavigateFunction) =>
+  useMutation({
+    mutationKey: ["login", "password", "name"],
+    mutationFn: (data: RegisterType) =>
+      request<ILogin>("post", "http://localhost:3001/register", data),
     onSuccess: () => {
       navigate("/characters");
     },

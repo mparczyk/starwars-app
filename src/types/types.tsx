@@ -81,17 +81,23 @@ export interface IPagination<T> {
 }
 
 export interface ILogin {
+  status: string;
+  data: LoginParams;
+}
+export interface LoginParams {
   id: number;
-  username: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  image: string;
+  name: string;
+  password: string;
+  role: string;
   token: string;
 }
 
-export type FieldType = {
-  username: string;
+export type LoginType = {
+  email: string;
   password: string;
+};
+
+export type RegisterType = LoginType & {
+  name: string;
 };

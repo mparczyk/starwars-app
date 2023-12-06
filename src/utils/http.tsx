@@ -23,7 +23,6 @@ export const request = async <T,>(
 
   if (response.ok) {
     const data = (await response.json()) as SuccessResponse<T>;
-    console.log(data);
     return data;
   }
 

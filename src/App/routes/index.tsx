@@ -7,27 +7,42 @@ import { PlanetsPage } from "../../Pages/Planets";
 import { StarshipsPage } from "../../Pages/Starships";
 import { VehiclesPage } from "../../Pages/Vehicles";
 import { PlanetPage } from "../../Pages/Planets/PlanetPage";
-import { HomePage } from "../../Pages/Home";
-import { LanguageSwitcher } from "../../UI/LanguageSwitcher/LanguageSwitcher";
+import { SignInPage } from "../../Pages/Login/SingInPage";
+import { AccountPage } from "../../Pages/Account";
+import { LoginPage } from "../../Pages/Login";
+import { redirect } from "react-router-dom";
+import { SignUpPage } from "../../Pages/Login/SignUpPage";
 
 export const routes = [
+  {
+    index: true,
+    loader: () => redirect("/auth"),
+  },
+  {
+    path: "/auth",
+    element: <LoginPage />,
+    children: [
+      {
+        index: true,
+        loader: () => redirect("/auth/login"),
+      },
+      {
+        path: "/auth/login",
+        element: <SignInPage />,
+      },
+      {
+        path: "/auth/register",
+        element: <SignUpPage />,
+      },
+    ],
+  },
   {
     path: "/",
     element: <StartSite />,
     children: [
       {
         index: true,
-        element: <HomePage />,
-        id: "home",
-      },
-      {
-        path: "/films",
-        element: <MoviesPage />,
-        id: "films",
-      },
-      {
-        path: "/films/:id",
-        element: <FilmPage />,
+        loader: () => redirect("/characters"),
       },
       {
         path: "/characters",
@@ -38,6 +53,16 @@ export const routes = [
         path: "/characters/:id",
         element: <PersonPage />,
       },
+      {
+        path: "/films",
+        element: <MoviesPage />,
+        id: "films",
+      },
+      {
+        path: "/films/:id",
+        element: <FilmPage />,
+      },
+
       {
         path: "/planets",
         element: <PlanetsPage />,
@@ -66,8 +91,8 @@ export const routes = [
         element: <>Vehicle</>,
       },
       {
-        path: "/typo",
-        element: <LanguageSwitcher />,
+        path: "/account",
+        element: <AccountPage />,
       },
     ],
   },
