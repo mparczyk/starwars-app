@@ -10,6 +10,7 @@ import {
 } from "./styles";
 import { Language } from "../../i18n/lang";
 import { LanguageSwitcher } from "../../UI/LanguageSwitcher/LanguageSwitcher";
+import { AccountCollapse } from "../Account";
 
 export const StartSite = (): JSX.Element => {
   const matches = useMatches();
@@ -25,6 +26,7 @@ export const StartSite = (): JSX.Element => {
           items={menu}
         />
         <LanguageSwitcher />
+        <AccountCollapse />
       </StyledHeader>
       <StyledContent>
         <Outlet />

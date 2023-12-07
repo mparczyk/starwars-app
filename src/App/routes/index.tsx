@@ -8,7 +8,6 @@ import { StarshipsPage } from "../../Pages/Starships";
 import { VehiclesPage } from "../../Pages/Vehicles";
 import { PlanetPage } from "../../Pages/Planets/PlanetPage";
 import { SignInPage } from "../../Pages/Login/SingInPage";
-import { AccountPage } from "../../Pages/Account";
 import { LoginPage } from "../../Pages/Login";
 import { redirect } from "react-router-dom";
 import { SignUpPage } from "../../Pages/Login/SignUpPage";
@@ -92,7 +91,7 @@ export const routes = [
       },
       {
         path: "/account",
-        element: <AccountPage />,
+        element: <>Account</>,
       },
     ],
   },

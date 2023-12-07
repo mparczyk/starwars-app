@@ -6,7 +6,7 @@ type MenuItems = Required<MenuProps>["items"];
 export const menu: MenuItems = [
   {
     key: "characters",
-    label: <Link to={"/"}>Characters</Link>,
+    label: <Link to={"/characters"}>Characters</Link>,
   },
   {
     key: "films",

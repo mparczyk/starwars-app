@@ -14,7 +14,7 @@ import type {
 
 import { request } from "../utils/http";
 import { NavigateFunction, redirect, useNavigate } from "react-router-dom";
-import { LocalStorageTokenKey } from "../utils/token";
+import { localStorageTokenKey } from "../utils/token";
 
 export const useCharactersQuery = (page: number) =>
   useQuery({
@@ -103,8 +103,7 @@ export const useSignInMutation = (navigate: NavigateFunction) =>
     mutationFn: (data: LoginType) =>
       request<ILogin>("post", "http://localhost:3001/login", data),
     onSuccess: (data: ILogin) => {
-      localStorage.setItem(LocalStorageTokenKey, data.data.token);
-      console.log(data.data);
+      localStorage.setItem("token", data.data.token);
       navigate("/characters");
     },
   });
@@ -117,4 +116,10 @@ export const useSignUpMutation = (navigate: NavigateFunction) =>
     onSuccess: () => {
       navigate("/characters");
     },
+  });
+
+export const useAccountQuery = () =>
+  useQuery({
+    queryKey: ["email", "name", "token"],
+    queryFn: () => request<ILogin>("get", "http://localhost:3001/whoami"),
   });
