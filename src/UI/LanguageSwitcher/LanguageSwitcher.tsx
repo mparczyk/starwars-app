@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { Typography } from "antd";
 import { useTranslation } from "react-i18next";
 
 import { Language, localStorageLanguageKey } from "../../i18n/lang";
-import { LanguageSwitcherEnglish } from "./SwitcherEn";
-import { LanguageSwitcherDeutsch } from "./SchwiterDe";
 import { StyledText } from "./styles";
 
 export const LanguageSwitcher = (): JSX.Element => {

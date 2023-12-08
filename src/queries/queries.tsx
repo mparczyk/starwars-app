@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { NavigateFunction } from "react-router-dom";
 
 import type {
   ILogin,
@@ -13,7 +14,7 @@ import type {
 } from "../types/types";
 
 import { request } from "../utils/http";
-import { NavigateFunction, redirect, useNavigate } from "react-router-dom";
+
 import { localStorageTokenKey } from "../utils/token";
 
 export const useCharactersQuery = (page: number) =>
@@ -103,7 +104,7 @@ export const useSignInMutation = (navigate: NavigateFunction) =>
     mutationFn: (data: LoginType) =>
       request<ILogin>("post", "http://localhost:3001/login", data),
     onSuccess: (data: ILogin) => {
-      localStorage.setItem("token", data.data.token);
+      localStorage.setItem(localStorageTokenKey, data.data.token);
       navigate("/characters");
     },
   });

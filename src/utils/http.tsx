@@ -21,7 +21,7 @@ export const request = async <T,>(
     method: method,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${localStorage.getItem("token")}`,
+      Authorization: `${localStorage.getItem(localStorageTokenKey)}`,
     },
     body: createBody(data),
   });

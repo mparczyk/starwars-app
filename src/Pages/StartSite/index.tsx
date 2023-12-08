@@ -8,7 +8,7 @@ import {
   StyledMenu,
   StyledFooter,
 } from "./styles";
-import { Language } from "../../i18n/lang";
+
 import { LanguageSwitcher } from "../../UI/LanguageSwitcher/LanguageSwitcher";
 import { AccountCollapse } from "../Account";
 

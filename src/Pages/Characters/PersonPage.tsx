@@ -1,9 +1,8 @@
-import { useParams } from 'react-router-dom';
-import { Card, Flex } from 'antd';
-import { useTranslation, Trans } from 'react-i18next';
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { usePersonQuery } from '../../queries/queries';
-import { MainWrapper, StyledAside, StyledSection, Wrapper } from './styles';
+import { usePersonQuery } from "../../queries/queries";
+import { MainWrapper, StyledAside, StyledSection, Wrapper } from "./styles";
 
 export const PersonPage = (): JSX.Element => {
   const { t } = useTranslation();
@@ -14,9 +13,9 @@ export const PersonPage = (): JSX.Element => {
       <MainWrapper>
         <StyledAside>
           <img
-            style={{ height: '100%', width: '100%', borderRadius: '8px' }}
-            alt='example'
-            src='https://icon-library.com/images/darth-vader-icon/darth-vader-icon-2.jpg'
+            style={{ height: "100%", width: "100%", borderRadius: "8px" }}
+            alt="example"
+            src="https://icon-library.com/images/darth-vader-icon/darth-vader-icon-2.jpg"
           />
         </StyledAside>
         <StyledSection>
@@ -26,7 +25,7 @@ export const PersonPage = (): JSX.Element => {
           <p>Mass: {person?.mass} kg</p>
           <p>Hair Color: {person?.hair_color}</p>
           <p>Skin Color: {person?.skin_color}</p>
-          <p>{t('description.part2')}</p>
+          <p>{t("description.part2")}</p>
         </StyledSection>
       </MainWrapper>
     </Wrapper>
