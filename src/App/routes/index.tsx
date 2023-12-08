@@ -11,12 +11,13 @@ import { SignInPage } from "../../Pages/Login/SingInPage";
 import { LoginPage } from "../../Pages/Login";
 import { redirect } from "react-router-dom";
 import { SignUpPage } from "../../Pages/Login/SignUpPage";
+import { AuthorizationLoader } from "./loader";
 
 export const routes = [
-  {
-    index: true,
-    loader: () => redirect("/auth"),
-  },
+  // {
+  //   index: true,
+  //   loader: () => redirect("/auth"),
+  // },
   {
     path: "/auth",
     element: <LoginPage />,
@@ -41,7 +42,7 @@ export const routes = [
     children: [
       {
         index: true,
-        loader: () => redirect("/characters"),
+        loader: () => AuthorizationLoader,
       },
       {
         path: "/characters",
