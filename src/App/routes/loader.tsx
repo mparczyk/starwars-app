@@ -1,11 +1,15 @@
 import { redirect } from "react-router-dom";
-import { useAccountQuery } from "../../queries/queries";
+import { authRequest } from "../../utils/http";
+import { ILogin } from "../../types/types";
+import { localStorageTokenKey } from "../../utils/token";
 
-export const AuthorizationLoader = () => {
+export const authorizationLoader = async () => {
+  const token = localStorage.getItem(localStorageTokenKey);
+
   try {
-    useAccountQuery();
+    await authRequest<ILogin>("http://localhost:3001/whoami", token ?? "");
     return redirect("/characters");
-  } catch (error) {
+  } catch {
     return redirect("/auth");
   }
 };
