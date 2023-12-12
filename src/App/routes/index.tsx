@@ -12,15 +12,14 @@ import { LoginPage } from "../../Pages/Login";
 import { redirect } from "react-router-dom";
 import { SignUpPage } from "../../Pages/Login/SignUpPage";
 import { authorizationLoader } from "./loader";
+import { ErrorPage } from "../../Pages/ErrorPage";
+import { SignUpSuccessPage } from "../../Pages/Login/SignUpSuccessPage";
 
 export const routes = [
-  // {
-  //   index: true,
-  //   loader: () => redirect("/auth"),
-  // },
   {
     path: "/auth",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -34,65 +33,75 @@ export const routes = [
         path: "/auth/register",
         element: <SignUpPage />,
       },
+      {
+        path: "/auth/signupsuccess",
+        element: <SignUpSuccessPage />,
+      },
     ],
   },
   {
     path: "/",
     element: <StartSite />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
-        loader: () => authorizationLoader(),
-      },
-      {
-        path: "/characters",
-        element: <CharacterPage />,
-        id: "characters",
-      },
-      {
-        path: "/characters/:id",
-        element: <PersonPage />,
-      },
-      {
-        path: "/films",
-        element: <MoviesPage />,
-        id: "films",
-      },
-      {
-        path: "/films/:id",
-        element: <FilmPage />,
-      },
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            index: true,
+            loader: () => authorizationLoader(),
+          },
+          {
+            path: "/characters",
+            element: <CharacterPage />,
+            id: "characters",
+          },
+          {
+            path: "/characters/:id",
+            element: <PersonPage />,
+          },
+          {
+            path: "/films",
+            element: <MoviesPage />,
+            id: "films",
+          },
+          {
+            path: "/films/:id",
+            element: <FilmPage />,
+          },
 
-      {
-        path: "/planets",
-        element: <PlanetsPage />,
-        id: "planets",
-      },
-      {
-        path: "/planets/:id",
-        element: <PlanetPage />,
-      },
-      {
-        path: "/starships",
-        element: <StarshipsPage />,
-        id: "starships",
-      },
-      {
-        path: "/starships/:id",
-        element: <>Starship</>,
-      },
-      {
-        path: "/vehicles",
-        element: <VehiclesPage />,
-        id: "vehicles",
-      },
-      {
-        path: "/vehicles/:id",
-        element: <>Vehicle</>,
-      },
-      {
-        path: "/account",
-        element: <>Account</>,
+          {
+            path: "/planets",
+            element: <PlanetsPage />,
+            id: "planets",
+          },
+          {
+            path: "/planets/:id",
+            element: <PlanetPage />,
+          },
+          {
+            path: "/starships",
+            element: <StarshipsPage />,
+            id: "starships",
+          },
+          {
+            path: "/starships/:id",
+            element: <>Starship</>,
+          },
+          {
+            path: "/vehicles",
+            element: <VehiclesPage />,
+            id: "vehicles",
+          },
+          {
+            path: "/vehicles/:id",
+            element: <>Vehicle</>,
+          },
+          {
+            path: "/account",
+            element: <>Account</>,
+          },
+        ],
       },
     ],
   },

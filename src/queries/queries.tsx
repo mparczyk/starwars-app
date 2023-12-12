@@ -115,7 +115,7 @@ export const useSignUpMutation = (navigate: NavigateFunction) =>
     mutationFn: (data: RegisterType) =>
       request<ILogin>("post", "http://localhost:3001/register", data),
     onSuccess: () => {
-      navigate("/characters");
+      navigate("/auth/signupsuccess");
     },
   });
 
