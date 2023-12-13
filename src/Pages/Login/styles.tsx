@@ -13,7 +13,6 @@ export const FormWrapper = styled.main`
   backgroun-color: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -31,4 +30,15 @@ export const LoginScreenTitle = styled.h1`
   margin: 0px;
   padding-bottom: 32px;
   color: yellow;
+`;
+
+export const SuccessWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(38, 40, 43);
+  width: 400px;
+  height: 300px;
+  padding: 24px;
+  border-radius: 12px;
 `;
