@@ -26,15 +26,15 @@ export const routes = [
         loader: () => redirect("/auth/login"),
       },
       {
-        path: "/auth/login",
+        path: "login",
         element: <SignInPage />,
       },
       {
-        path: "/auth/register",
+        path: "register",
         element: <SignUpPage />,
       },
       {
-        path: "/auth/signupsuccess",
+        path: "signupsuccess",
         element: <SignUpSuccessPage />,
       },
     ],
@@ -42,6 +42,7 @@ export const routes = [
   {
     path: "/",
     element: <StartSite />,
+    loader: authorizationLoader,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -49,7 +50,7 @@ export const routes = [
         children: [
           {
             index: true,
-            loader: () => authorizationLoader(),
+            loader: () => redirect("/characters"),
           },
           {
             path: "/characters",

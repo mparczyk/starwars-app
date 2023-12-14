@@ -1,7 +1,9 @@
 import { redirect } from "react-router-dom";
-import { request } from "../../utils/http";
-import { ILogin, LoginParams } from "../../types/types";
+
+import type { ILogin } from "../../types/types";
+
 import { localStorageTokenKey } from "../../utils/token";
+import { request } from "../../utils/http";
 
 type SuccessResponse<T> = T;
 
@@ -25,12 +27,12 @@ const authRequest = async <T,>() => {
 export const authorizationLoader = async () => {
   // const mapService = {
   //   getConfiguration: () => request.get(`http://localhost:3001/whoami`),
-  //   getGeoObjects: () => request.get(`geo/roi`),
+  //   getGeoObjects: () => HTTP.get(`geo/roi`),
   //   getGeoCategories: () => HTTP.get(`geo/categories`),
   // };
   try {
     await authRequest<ILogin>();
-    return redirect("/characters");
+    return null;
   } catch {
     return redirect("/auth");
   }
