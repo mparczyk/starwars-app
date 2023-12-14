@@ -33,20 +33,3 @@ export const request = async <T,>(
 
   throw new Error();
 };
-
-export const authRequest = async <T,>(url: string, token: string) => {
-  const response = await fetch(url, {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
-
-  if (response.ok) {
-    const data = (await response.json()) as SuccessResponse<T>;
-    return data;
-  }
-
-  throw new Error();
-};
