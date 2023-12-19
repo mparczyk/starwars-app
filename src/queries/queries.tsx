@@ -1,19 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { NavigateFunction } from "react-router-dom";
 
-import type {
-  ILogin,
-  IMovie,
-  IPagination,
-  IPerson,
-  IPlanet,
-  IStarships,
-  IVehicles,
-  LoginType,
-  RegisterType,
-} from "../types/types";
-
-import { request } from "../utils/http";
+import type { ILogin, LoginType, RegisterType } from "../types/types";
 
 import { localStorageTokenKey } from "../utils/token";
 import {

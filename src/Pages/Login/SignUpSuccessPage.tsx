@@ -1,6 +1,7 @@
 import { Button, ConfigProvider } from "antd";
-import { FormWrapper, LoginTitle, SuccessWrapper } from "./styles";
 import { useNavigate } from "react-router-dom";
+
+import { FormWrapper, LoginTitle, SuccessWrapper } from "./styles";
 
 export const SignUpSuccessPage = (): JSX.Element => {
   const navigate = useNavigate();

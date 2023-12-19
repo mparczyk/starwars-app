@@ -3,7 +3,6 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from "react-router-dom";
-
 import { Button, Result } from "antd";
 
 export const ErrorPage = () => {

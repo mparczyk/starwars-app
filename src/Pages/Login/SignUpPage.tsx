@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import type { RegisterType } from "../../types/types";
 
 import { useSignUpMutation } from "../../queries/queries";
+
 import { FormWrapper, LoginTitle, StyledForm } from "./styles";
 
 export const SignUpPage = (): JSX.Element => {

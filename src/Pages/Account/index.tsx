@@ -1,8 +1,10 @@
-import { Button, ConfigProvider, Dropdown, MenuProps, Space } from "antd";
+import { Button, ConfigProvider, MenuProps, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { useAccountQuery } from "../../queries/queries";
-import { localStorageTokenKey } from "../../utils/token";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+
+import { useAccountQuery } from "../../queries/queries";
+
+import { localStorageTokenKey } from "../../utils/token";
 import { StyledDropdown } from "./styles";
 
 const handleOnClick = (navigate: NavigateFunction) => {

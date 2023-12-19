@@ -1,4 +1,4 @@
-import {
+import type {
   ILogin,
   IMovie,
   IPagination,
@@ -9,6 +9,7 @@ import {
   LoginType,
   RegisterType,
 } from "../types/types";
+
 import { request } from "../utils/http";
 
 export const authService = {
