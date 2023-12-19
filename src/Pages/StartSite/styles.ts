@@ -22,6 +22,7 @@ export const StyledHeader = styled(Header)`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   background-color: black;
 `;
 

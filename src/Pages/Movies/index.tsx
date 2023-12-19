@@ -30,9 +30,7 @@ export const MoviesPage = (): JSX.Element => {
               >
                 <Meta
                   title={
-                    <StyledLink to={`/starships/${id}`}>
-                      {film.title}
-                    </StyledLink>
+                    <StyledLink to={`/films/${id}`}>{film.title}</StyledLink>
                   }
                 />
               </StyledCard>

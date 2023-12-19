@@ -11,15 +11,15 @@ import {
 
 import { LanguageSwitcher } from "../../UI/LanguageSwitcher/LanguageSwitcher";
 import { AccountCollapse } from "../Account";
+import { Language } from "../../i18n/lang";
 
 export const StartSite = (): JSX.Element => {
   const matches = useMatches();
-  // Object.entries(Language).forEach(([key, value]) => console.log(key, value));
+  Object.entries(Language).forEach(([key, value]) => console.log(key, value));
 
   return (
     <StyledLayout>
       <StyledHeader>
-        <div className="demo-logo" />
         <StyledMenu
           mode="horizontal"
           defaultSelectedKeys={[matches.at(-1)?.id ?? ""]}

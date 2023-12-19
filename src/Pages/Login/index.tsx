@@ -5,7 +5,7 @@ import {
   StyledHeader,
   StyledLayout,
   StyledFooter,
-} from "../StartSite/styles";
+} from "./styles";
 import { LanguageSwitcher } from "../../UI/LanguageSwitcher/LanguageSwitcher";
 
 export const LoginPage = (): JSX.Element => {

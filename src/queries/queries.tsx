@@ -16,93 +16,79 @@ import type {
 import { request } from "../utils/http";
 
 import { localStorageTokenKey } from "../utils/token";
+import {
+  authService,
+  characterService,
+  movieService,
+  planetsService,
+  starshipsService,
+  vehiclesService,
+} from "../API/service";
 
 export const useCharactersQuery = (page: number) =>
   useQuery({
     queryKey: ["characters", "list", page],
-    queryFn: () =>
-      request<IPagination<IPerson>>(
-        "get",
-        `https://swapi.dev/api/people/?page=${page}`
-      ),
+    queryFn: () => characterService.getCharacter(page),
   });
 
 export const usePersonQuery = (id: string) =>
   useQuery({
     queryKey: ["character", "details", id],
-    queryFn: () =>
-      request<IPerson>("get", `https://swapi.dev/api/people/${id}`),
+    queryFn: () => characterService.getPerson(id),
   });
 
 export const useMoviesQuery = () =>
   useQuery({
     queryKey: ["movies"],
-    queryFn: () =>
-      request<IPagination<IMovie>>("get", "https://swapi.dev/api/films"),
+    queryFn: () => movieService.getMovies(),
   });
 
 export const useFilmQuery = (id: string) =>
   useQuery({
     queryKey: ["movies", "details", id],
-    queryFn: () => request<IMovie>("get", `https://swapi.dev/api/films/${id}`),
+    queryFn: () => movieService.getFilm(id),
   });
 
 export const usePlanetsQuery = (page: number) =>
   useQuery({
     queryKey: ["planets", "list", page],
-    queryFn: () =>
-      request<IPagination<IPlanet>>(
-        "get",
-        `https://swapi.dev/api/planets/?page=${page}`
-      ),
+    queryFn: () => planetsService.getPlanets(page),
   });
 
 export const useSinglePlanetQuery = (id: string) =>
   useQuery({
     queryKey: ["planets", "details", id],
-    queryFn: () =>
-      request<IPlanet>("get", `https://swapi.dev/api/planets/${id}`),
+    queryFn: () => planetsService.getSinglePlanet(id),
   });
 
 export const useStarshipsQuery = (page: number) =>
   useQuery({
     queryKey: ["starships", "list", page],
-    queryFn: () =>
-      request<IPagination<IStarships>>(
-        "get",
-        `https://swapi.dev/api/starships/?page=${page}`
-      ),
+    queryFn: () => starshipsService.getStarships(page),
   });
 
 export const useSingleStarshipQuery = (id: string) =>
   useQuery({
     queryKey: ["starships", "details", id],
-    queryFn: () =>
-      request<IStarships>("get", `https://swapi.dev/api/starships/${id}`),
+    queryFn: () => starshipsService.getSingleStarship(id),
   });
 
 export const useVehiclesQuery = (page: number) =>
   useQuery({
     queryKey: ["vehicles", "list", page],
-    queryFn: () =>
-      request<IPagination<IVehicles>>(
-        "get",
-        `https://swapi.dev/api/vehicles/?page=${page}`
-      ),
+    queryFn: () => vehiclesService.getVehicles(page),
   });
 
 export const useSingleVehicleQuery = (id: string) =>
   useQuery({
     queryKey: ["vehicles", "details", id],
-    queryFn: () =>
-      request<IVehicles>("get", `https://swapi.dev/api/vehicles/${id}`),
+    queryFn: () => vehiclesService.getSingleVehicle(id),
   });
 
 export const useSignInMutation = (navigate: NavigateFunction) =>
   useMutation({
     mutationKey: ["login", "password"],
-    mutationFn: (data: LoginType) =>
-      request<ILogin>("post", "http://localhost:3001/login", data),
+    mutationFn: (data: LoginType) => authService.signIn(data),
     onSuccess: (data: ILogin) => {
       localStorage.setItem(localStorageTokenKey, data.data.token);
       navigate("/characters");
@@ -112,8 +98,7 @@ export const useSignInMutation = (navigate: NavigateFunction) =>
 export const useSignUpMutation = (navigate: NavigateFunction) =>
   useMutation({
     mutationKey: ["login", "password", "name"],
-    mutationFn: (data: RegisterType) =>
-      request<ILogin>("post", "http://localhost:3001/register", data),
+    mutationFn: (data: RegisterType) => authService.signUp(data),
     onSuccess: () => {
       navigate("/auth/signupsuccess");
     },
@@ -122,5 +107,5 @@ export const useSignUpMutation = (navigate: NavigateFunction) =>
 export const useAccountQuery = () =>
   useQuery({
     queryKey: ["email", "name", "token"],
-    queryFn: () => request<ILogin>("get", "http://localhost:3001/whoami"),
+    queryFn: () => authService.whoAmI(),
   });

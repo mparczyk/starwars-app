@@ -1,7 +1,7 @@
-import { Card, Skeleton } from 'antd';
-import { Link } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import { Card, Skeleton } from "antd";
+import { Link } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   html {

@@ -3,6 +3,7 @@ import { DownOutlined } from "@ant-design/icons";
 import { useAccountQuery } from "../../queries/queries";
 import { localStorageTokenKey } from "../../utils/token";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { StyledDropdown } from "./styles";
 
 const handleOnClick = (navigate: NavigateFunction) => {
   localStorage.removeItem(localStorageTokenKey);
@@ -35,12 +36,12 @@ export const AccountCollapse = (): JSX.Element => {
         },
       }}
     >
-      <Dropdown menu={{ items }} trigger={["click"]}>
+      <StyledDropdown menu={{ items }} trigger={["click"]}>
         <Space>
           <DownOutlined />
           {`${accountData?.data.email}`}
         </Space>
-      </Dropdown>
+      </StyledDropdown>
     </ConfigProvider>
   );
 };
