@@ -4,7 +4,7 @@ import { Language, localStorageLanguageKey } from "../../i18n/lang";
 import { StyledText } from "./styles";
 
 export const LanguageSwitcher = (): JSX.Element => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleOnClick = (language: string) => {
     i18n.changeLanguage(language);

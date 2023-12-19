@@ -29,7 +29,7 @@ export const LoginTitle = styled.h2`
 
 export const LoginScreenTitle = styled.h1`
   text-align: center;
-  margin: 0px;
+  margin: 0;
   padding-bottom: 32px;
   color: yellow;
 `;

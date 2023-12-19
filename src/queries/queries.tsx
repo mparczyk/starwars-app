@@ -27,7 +27,7 @@ export const usePersonQuery = (id: string) =>
 
 export const useMoviesQuery = () =>
   useQuery({
-    queryKey: ["movies"],
+    queryKey: ["movies", "list"],
     queryFn: () => movieService.getMovies(),
   });
 
@@ -75,7 +75,6 @@ export const useSingleVehicleQuery = (id: string) =>
 
 export const useSignInMutation = (navigate: NavigateFunction) =>
   useMutation({
-    mutationKey: ["login", "password"],
     mutationFn: (data: LoginType) => authService.signIn(data),
     onSuccess: (data: ILogin) => {
       localStorage.setItem(localStorageTokenKey, data.data.token);
@@ -85,7 +84,6 @@ export const useSignInMutation = (navigate: NavigateFunction) =>
 
 export const useSignUpMutation = (navigate: NavigateFunction) =>
   useMutation({
-    mutationKey: ["login", "password", "name"],
     mutationFn: (data: RegisterType) => authService.signUp(data),
     onSuccess: () => {
       navigate("/auth/signupsuccess");
@@ -94,6 +92,6 @@ export const useSignUpMutation = (navigate: NavigateFunction) =>
 
 export const useAccountQuery = () =>
   useQuery({
-    queryKey: ["email", "name", "token"],
+    queryKey: ["whoami", "login"],
     queryFn: () => authService.whoAmI(),
   });

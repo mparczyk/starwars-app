@@ -60,11 +60,7 @@ export const SignInPage = (): JSX.Element => {
               <Button type="primary" htmlType="submit">
                 Login
               </Button>
-              <Button
-                type="primary"
-                htmlType="submit"
-                onClick={() => navigate("/auth/register")}
-              >
+              <Button type="text" onClick={() => navigate("/auth/register")}>
                 Register
               </Button>
             </Space>

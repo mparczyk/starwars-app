@@ -67,11 +67,7 @@ export const SignUpPage = (): JSX.Element => {
               <Button type="primary" htmlType="submit">
                 Register
               </Button>
-              <Button
-                type="primary"
-                htmlType="submit"
-                onClick={() => navigate("/auth/login")}
-              >
+              <Button type="text" onClick={() => navigate("/auth/login")}>
                 Login
               </Button>
             </Space>
