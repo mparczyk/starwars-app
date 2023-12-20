@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import type { RegisterType } from "../../types/types";
 
-import { useSignUpMutation } from "../../queries/queries";
+import { useSignUpMutation } from "../../api/authentication/queries";
 
 import { FormWrapper, LoginTitle, StyledForm } from "./styles";
 

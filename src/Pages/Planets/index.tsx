@@ -4,7 +4,7 @@ import Meta from "antd/es/card/Meta";
 
 import type { IPlanet } from "../../types/types";
 
-import { usePlanetsQuery } from "../../queries/queries";
+import { usePlanetsQuery } from "../../api/planets/queries";
 
 import { StyledCard, StyledLink, StyledSkeleton } from "../../styles/styles";
 import { CustomPagination } from "../../UI/Pagination";

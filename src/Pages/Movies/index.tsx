@@ -3,7 +3,7 @@ import Meta from "antd/es/card/Meta";
 
 import type { IMovie } from "../../types/types";
 
-import { useMoviesQuery } from "../../queries/queries";
+import { useMoviesQuery } from "../../api/movies/queries";
 
 import { StyledCard, StyledLink, StyledSkeleton } from "../../styles/styles";
 

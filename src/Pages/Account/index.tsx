@@ -2,7 +2,7 @@ import { Button, ConfigProvider, MenuProps, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
-import { useAccountQuery } from "../../queries/queries";
+import { useAccountQuery } from "../../api/authentication/queries";
 
 import { localStorageTokenKey } from "../../utils/token";
 import { StyledDropdown } from "./styles";

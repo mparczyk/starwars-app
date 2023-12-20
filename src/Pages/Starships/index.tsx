@@ -4,7 +4,7 @@ import Meta from "antd/es/card/Meta";
 
 import type { IStarships } from "../../types/types";
 
-import { useStarshipsQuery } from "../../queries/queries";
+import { useStarshipsQuery } from "../../api/starships/queries";
 
 import { CustomPagination } from "../../UI/Pagination";
 import { StyledLink, StyledCard, StyledSkeleton } from "../../styles/styles";

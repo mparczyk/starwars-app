@@ -4,7 +4,7 @@ import Meta from "antd/es/card/Meta";
 
 import type { IPerson } from "../../types/types";
 
-import { useCharactersQuery } from "../../queries/queries";
+import { useCharactersQuery } from "../../api/characters/queries";
 
 import { StyledImg, StyledCard, StyledLink } from "./styles";
 import { CustomPagination } from "../../UI/Pagination";

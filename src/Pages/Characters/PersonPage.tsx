@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { usePersonQuery } from "../../queries/queries";
+import { usePersonQuery } from "../../api/characters/queries";
 
 import { MainWrapper, StyledAside, StyledSection, Wrapper } from "./styles";
 

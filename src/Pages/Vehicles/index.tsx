@@ -4,7 +4,7 @@ import Meta from "antd/es/card/Meta";
 
 import type { IVehicles } from "../../types/types";
 
-import { useVehiclesQuery } from "../../queries/queries";
+import { useVehiclesQuery } from "../../api/vehicles/queries";
 
 import { CustomPagination } from "../../UI/Pagination";
 import { StyledCard, StyledLink, StyledSkeleton } from "../../styles/styles";

@@ -89,7 +89,7 @@ export interface LoginParams {
   email: string;
   name: string;
   password: string;
-  role: string;
+  role: Role;
   token: string;
 }
 
@@ -101,3 +101,8 @@ export type LoginType = {
 export type RegisterType = LoginType & {
   name: string;
 };
+
+enum Role {
+  admin = "admin",
+  user = "user",
+}

@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 
-import { authService } from "../../API/service";
+import { authService } from "../../api/authentication/service";
 
 export const authorizationLoader = async () => {
   try {
