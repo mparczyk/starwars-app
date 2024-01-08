@@ -1,10 +1,13 @@
 import { Button, ConfigProvider } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { FormWrapper, LoginTitle, SuccessWrapper } from "./styles";
 
 export const SignUpSuccessPage = (): JSX.Element => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
+
   return (
     <ConfigProvider
       theme={{
@@ -21,7 +24,7 @@ export const SignUpSuccessPage = (): JSX.Element => {
     >
       <FormWrapper>
         <SuccessWrapper>
-          <LoginTitle>Success! Now you can Sign in to your Account!</LoginTitle>
+          <LoginTitle>{t("signUp:popUp")}</LoginTitle>
           <Button type="primary" onClick={() => navigate("/auth/login")}>
             Login
           </Button>

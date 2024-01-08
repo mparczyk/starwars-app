@@ -15,6 +15,7 @@ export const CustomSwitcher = ({
   const handleOnClick = (language: string) => {
     i18n.changeLanguage(language);
     localStorage.setItem(localStorageLanguageKey, language);
+    window.location.reload();
   };
 
   return (

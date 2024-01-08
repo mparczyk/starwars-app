@@ -6,8 +6,10 @@ import type { RegisterType } from "../../types/types";
 import { useSignUpMutation } from "../../api/authentication/queries";
 
 import { FormWrapper, LoginTitle, StyledForm } from "./styles";
+import { useTranslation } from "react-i18next";
 
 export const SignUpPage = (): JSX.Element => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { mutate: signUpFetch } = useSignUpMutation(navigate);
@@ -36,20 +38,21 @@ export const SignUpPage = (): JSX.Element => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
+          requiredMark={"optional"}
           onFinish={signUpFetch}
         >
-          <LoginTitle>Registration</LoginTitle>
+          <LoginTitle>{t("signUp:title")}</LoginTitle>
           <Form.Item<RegisterType>
             label="Name"
             name="name"
-            rules={[{ required: true, message: "Please input your Name" }]}
+            rules={[{ required: true, message: `${t("signUp:name")}` }]}
           >
             <Input />
           </Form.Item>
           <Form.Item<RegisterType>
             label="Email"
             name="email"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: `${t("signUp:email")}` }]}
           >
             <Input />
           </Form.Item>
@@ -57,7 +60,7 @@ export const SignUpPage = (): JSX.Element => {
           <Form.Item<RegisterType>
             label="Password"
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[{ required: true, message: `${t("signUp:password")}` }]}
           >
             <Input.Password />
           </Form.Item>

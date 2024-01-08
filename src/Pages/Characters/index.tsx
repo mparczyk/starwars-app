@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { List } from "antd";
+import { Empty, List } from "antd";
 import Meta from "antd/es/card/Meta";
 
 import type { IPerson } from "../../types/types";

@@ -1,0 +1,17 @@
+{
+  "description": {
+    "part2": "Halo, ich freue mich Sie lennen zu lernen"
+  },
+  "signIn": {
+    "username": "Bitte geben Sie Ihren Benutzernamen ein",
+    "password": "Bitte geben Sie Ihr Passwort ein",
+    "title": "Anmeldung"
+  },
+  "signUp": {
+    "name": "Bitte geben Sie Ihren Namen ein",
+    "email": "Bitte geben Sie Ihren E-Mail ein",
+    "password": "Bitte geben Sie Ihr Passwort ein",
+    "popUp": "Erfolgreich! Jetzt können Sie sich bei Ihrem Konto anmelden!",
+    "title": "Registriegung"
+  }
+}

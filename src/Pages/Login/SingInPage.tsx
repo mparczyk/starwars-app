@@ -6,8 +6,10 @@ import type { LoginType } from "../../types/types";
 import { useSignInMutation } from "../../api/authentication/queries";
 
 import { FormWrapper, LoginTitle, StyledForm } from "./styles";
+import { useTranslation } from "react-i18next";
 
 export const SignInPage = (): JSX.Element => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { mutate: signInFetch } = useSignInMutation(navigate);
@@ -36,13 +38,14 @@ export const SignInPage = (): JSX.Element => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
+          requiredMark={"optional"}
           onFinish={signInFetch}
         >
-          <LoginTitle>Login</LoginTitle>
+          <LoginTitle>{t("signIn:title")}</LoginTitle>
           <Form.Item<LoginType>
             label="Email"
             name="email"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: `${t("signIn:username")}` }]}
           >
             <Input />
           </Form.Item>
@@ -50,7 +53,7 @@ export const SignInPage = (): JSX.Element => {
           <Form.Item<LoginType>
             label="Password"
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[{ required: true, message: `${t("signIn:password")}` }]}
           >
             <Input.Password />
           </Form.Item>
