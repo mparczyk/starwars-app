@@ -1,9 +1,9 @@
-#StarWars App
+# StarWars App
 
-##General Info
+## General Info
 Star-Wars fanpage project using https://swapi.dev/ API and custom API for authentication.
 
-##Technologies
+## Technologies
 Project is created with:
 * TypeScript
 * ReactJS
@@ -15,4 +15,4 @@ Project is created with:
 * https://swapi.dev/ - Free Star-wars API
 * custom API for authentication
 
-##Content
+## Content
