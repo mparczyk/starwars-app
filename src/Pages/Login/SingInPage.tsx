@@ -51,7 +51,7 @@ export const SignInPage = (): JSX.Element => {
           </Form.Item>
 
           <Form.Item<LoginType>
-            label="Password"
+            label={t("signIn:passwordLabel")}
             name="password"
             rules={[{ required: true, message: `${t("signIn:password")}` }]}
           >
@@ -61,10 +61,10 @@ export const SignInPage = (): JSX.Element => {
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Space>
               <Button type="primary" htmlType="submit">
-                Login
+                {t("signIn:loginButton")}
               </Button>
               <Button type="text" onClick={() => navigate("/auth/register")}>
-                Register
+                {t("signIn:registerButton")}
               </Button>
             </Space>
           </Form.Item>

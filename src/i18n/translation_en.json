@@ -5,7 +5,10 @@
   "signIn": {
     "username": "Please input your username",
     "password": "Please input your password",
-    "title": "Login"
+    "passwordLabel": "Password",
+    "title": "Login",
+    "loginButton": "Login",
+    "registerButton": "Register"
   },
   "signUp": {
     "name": "Please input your Name",

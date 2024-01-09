@@ -5,7 +5,10 @@
   "signIn": {
     "username": "Bitte geben Sie Ihren Benutzernamen ein",
     "password": "Bitte geben Sie Ihr Passwort ein",
-    "title": "Anmeldung"
+    "passwordLabel": "Passwort",
+    "title": "Anmeldung",
+    "loginButton": "Anmelden",
+    "registerButton": "Registrierung"
   },
   "signUp": {
     "name": "Bitte geben Sie Ihren Namen ein",
